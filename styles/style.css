@@ -1,0 +1,15 @@
+@import url('./globalstyles.css');
+@import url('./header.css');
+@import url('./todo.css');
+
+#app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.main__lists {
+  max-width: 480px;
+  width: 100%;
+  height: 90%;
+  margin: 0 auto;
+}
