@@ -6,7 +6,7 @@ function todoLists() {
   const ul = document.createElement('ul');
   ul.classList = 'todo__lists';
 
-  const li = list.map(
+  const li = list().map(
     (item) => `<li class='todo__list ${item.id}'> ${item.title} </li>`
   );
 
