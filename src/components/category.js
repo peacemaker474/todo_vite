@@ -10,12 +10,12 @@ function showCategory() {
   const li = list()[0]['category'].map((category) =>
     category === title()
       ? `
-      <li class='todo_category ${category} disable'>
+      <li class='toDo__category ${category} disable'>
         <button disabled> ${category} </button>
       </li>
     `
       : `
-      <li class='todo_category ${category}'>
+      <li class='toDo__category ${category}'>
         <button> ${category} </button>
       </li>
     `
