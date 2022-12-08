@@ -2,6 +2,9 @@ import store from '../store/store';
 
 const handleAddCategory = (evt) => {
   evt.target.classList.toggle('add-able');
+  const form = document.querySelector('.toDo__category-form');
+
+  form.classList.toggle('categoryForm-modal');
 };
 
 const addCategoryButton = () => {
@@ -23,7 +26,7 @@ function showCategory() {
   const [title, setTitle] = store.category();
 
   const ul = document.createElement('ul');
-  ul.classList = 'toDo__categories';
+  ul.className = 'toDo__categories';
 
   const li = list()[0]['category'].map((category) =>
     category === title()
