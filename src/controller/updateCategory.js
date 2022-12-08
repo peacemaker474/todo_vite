@@ -24,9 +24,11 @@ const handleChangeCategory = (evt) => {
 function updateCategory() {
   const categories = Array.from(document.querySelectorAll('.toDo__category'));
 
-  categories.forEach((category) =>
-    category.addEventListener('click', handleChangeCategory)
-  );
+  categories
+    .filter((category) => !category.className.includes('add_category'))
+    .forEach((category) =>
+      category.addEventListener('click', handleChangeCategory)
+    );
 }
 
 export default updateCategory;

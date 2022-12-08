@@ -1,5 +1,23 @@
 import store from '../store/store';
 
+const handleAddCategory = (evt) => {
+  evt.target.classList.toggle('add-able');
+};
+
+const addCategoryButton = () => {
+  const li = document.createElement('li');
+  const button = document.createElement('button');
+
+  li.className = 'toDo__category add_category';
+  button.textContent = 'Add';
+
+  button.addEventListener('click', handleAddCategory);
+
+  li.append(button);
+
+  return li;
+};
+
 function showCategory() {
   const [list, setLists] = store.toDo();
   const [title, setTitle] = store.category();
@@ -22,6 +40,7 @@ function showCategory() {
   );
 
   ul.innerHTML = li.join('');
+  ul.append(addCategoryButton());
 
   return ul;
 }
