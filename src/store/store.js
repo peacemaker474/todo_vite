@@ -35,7 +35,7 @@ const toDo = (() => {
 
   const getStore = () => store || initialState;
   const setStore = (newStore) => {
-    store = [...newStore, ...store];
+    store = store ? [...newStore, ...store] : [...newStore, ...initialState];
   };
 
   return (newStore) => {

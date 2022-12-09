@@ -43,7 +43,7 @@ function showCategory() {
   );
 
   ul.innerHTML = li.join('');
-  ul.append(addCategoryButton());
+  ul.prepend(addCategoryButton());
 
   return ul;
 }

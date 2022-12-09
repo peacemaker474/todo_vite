@@ -8,7 +8,7 @@ const changeMainTitle = (currentTitle) => {
   mainTitle.textContent = `My ${title()} List`;
 };
 
-const handleChangeCategory = (evt) => {
+export const handleChangeCategory = (evt) => {
   const currentDisabledButton = document.querySelector('.disable');
   const changedDisabledButton = currentDisabledButton.querySelector('button');
   changedDisabledButton.disabled = false;

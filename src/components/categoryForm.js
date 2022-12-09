@@ -1,3 +1,5 @@
+import { handleAddCategory } from '../controller/addCategory';
+
 function showCategoryForm() {
   const form = document.createElement('form');
   form.className = 'toDo__category-form categoryForm-modal';
@@ -10,6 +12,8 @@ function showCategoryForm() {
       class='add__newCategory'
     />
   `;
+
+  form.addEventListener('submit', handleAddCategory);
 
   return form;
 }
