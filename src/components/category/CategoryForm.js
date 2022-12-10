@@ -1,6 +1,6 @@
-import { handleAddCategory } from '../controller/addCategory';
+import { handleAddCategory } from '../../controller/addCategory';
 
-function showCategoryForm() {
+function ViewCategoryForm() {
   const form = document.createElement('form');
   form.className = 'toDo__category-form categoryForm-modal';
 
@@ -18,4 +18,4 @@ function showCategoryForm() {
   return form;
 }
 
-export default showCategoryForm;
+export default ViewCategoryForm;

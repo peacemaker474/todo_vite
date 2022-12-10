@@ -1,4 +1,4 @@
-import store from '../store/store';
+import store from '../../store/store';
 
 const handleAddCategory = (evt) => {
   evt.target.classList.toggle('add-able');
@@ -21,7 +21,7 @@ const addCategoryButton = () => {
   return li;
 };
 
-function showCategory() {
+function ViewCategories() {
   const [category, setCategory] = store.categoryStore();
   const [title, setTitle] = store.titleStore();
 
@@ -48,4 +48,4 @@ function showCategory() {
   return ul;
 }
 
-export default showCategory;
+export default ViewCategories;

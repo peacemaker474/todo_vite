@@ -1,6 +1,6 @@
-import store from '../store/store';
+import store from '../../store/store';
 
-function todoLists() {
+function ToDoLists() {
   const [toDoLists, setToDoLists] = store.toDoStore();
 
   if (typeof toDoLists() === 'string') {
@@ -24,4 +24,4 @@ function todoLists() {
   }
 }
 
-export default todoLists;
+export default ToDoLists;

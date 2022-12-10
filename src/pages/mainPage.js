@@ -1,6 +1,6 @@
-import showCategory from '../components/category';
-import showCategoryForm from '../components/categoryForm';
-import todoLists from '../components/todolists';
+import ViewCategories from '../components/category/categories';
+import ViewCategoryForm from '../components/category/CategoryForm';
+import ToDoLists from '../components/main/ToDoLists';
 
 function mainPage() {
   const main = document.createElement('main');
@@ -8,10 +8,10 @@ function mainPage() {
   main.className = 'main__lists';
   hr.className = 'middleLine';
 
-  main.append(showCategory());
-  main.append(showCategoryForm());
+  main.append(ViewCategories());
+  main.append(ViewCategoryForm());
   main.append(hr);
-  main.append(todoLists());
+  main.append(ToDoLists());
 
   return main;
 }

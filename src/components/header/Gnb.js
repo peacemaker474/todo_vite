@@ -1,6 +1,6 @@
-import store from '../store/store';
+import store from '../../store/store';
 
-function gnb() {
+function Gnb() {
   const [title, _] = store.titleStore();
 
   const header = document.createElement('header');
@@ -13,4 +13,4 @@ function gnb() {
   return header;
 }
 
-export default gnb;
+export default Gnb;

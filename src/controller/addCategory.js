@@ -1,7 +1,7 @@
 import store from '../store/store';
 import { handleChangeCategory } from './updateCategory';
 
-const handleAddCategoryUi = (category) => {
+const handleAddCategoryUI = (category) => {
   const ul = document.querySelector('.toDo__categories');
 
   const li = document.createElement('li');
@@ -30,6 +30,6 @@ export const handleAddCategory = (evt) => {
 
   // setToDo(newToDo);
   setCategory(input.value);
-  handleAddCategoryUi(input.value);
+  handleAddCategoryUI(input.value);
   input.value = '';
 };
