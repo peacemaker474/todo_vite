@@ -16,11 +16,22 @@ const initialState = [
   },
 ];
 
-const category = (() => {
-  let title = 'TO_DO';
+const initialTitle = 'TO_DO';
+const initialCategories = ['TO_DO', 'DOING'];
+const initialToDoLists = '등록된 목록이 없습니다.';
+
+const STORGE_KEY = {
+  title: 'TITLE',
+  lists: 'TODO_LIST',
+  category: 'CATEGORY',
+};
+
+const titleStore = (() => {
+  let title = localStorage.getItem(STORGE_KEY.title) ?? initialTitle;
 
   const getTitle = () => title;
   const setTitle = (newTitle) => {
+    localStorage.setItem(STORGE_KEY.title, newTitle);
     title = newTitle;
   };
 
@@ -30,12 +41,29 @@ const category = (() => {
   };
 })();
 
-const toDo = (() => {
-  let store;
+const categoryStore = (() => {
+  let categories =
+    JSON.parse(localStorage.getItem(STORGE_KEY.category)) ?? initialCategories;
 
-  const getStore = () => store || initialState;
+  const getCategories = () => categories;
+  const setCategories = (category) => {
+    const newCategories = [...categories, category];
+    localStorage.setItem(STORGE_KEY.category, JSON.stringify(newCategories));
+    categories = newCategories;
+  };
+
+  return (category) => {
+    if (category) setCategories(category);
+    return [getCategories, setCategories];
+  };
+})();
+
+const toDoStore = (() => {
+  let store = localStorage.getItem(STORGE_KEY.lists) ?? initialToDoLists;
+
+  const getStore = () => store;
   const setStore = (newStore) => {
-    store = store ? [...newStore, ...store] : [...newStore, ...initialState];
+    store = newStore;
   };
 
   return (newStore) => {
@@ -45,8 +73,9 @@ const toDo = (() => {
 })();
 
 const store = {
-  toDo,
-  category,
+  toDoStore,
+  titleStore,
+  categoryStore,
 };
 
 export default store;

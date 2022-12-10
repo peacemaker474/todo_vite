@@ -22,22 +22,22 @@ const addCategoryButton = () => {
 };
 
 function showCategory() {
-  const [list, setLists] = store.toDo();
-  const [title, setTitle] = store.category();
+  const [category, setCategory] = store.categoryStore();
+  const [title, setTitle] = store.titleStore();
 
   const ul = document.createElement('ul');
   ul.className = 'toDo__categories';
 
-  const li = list()[0]['category'].map((category) =>
-    category === title()
+  const li = category().map((item) =>
+    item === title()
       ? `
-      <li class='toDo__category ${category} disable'>
-        <button disabled> ${category} </button>
+      <li class='toDo__category ${item} disable'>
+        <button disabled> ${item} </button>
       </li>
     `
       : `
-      <li class='toDo__category ${category}'>
-        <button> ${category} </button>
+      <li class='toDo__category ${item}'>
+        <button> ${item} </button>
       </li>
     `
   );

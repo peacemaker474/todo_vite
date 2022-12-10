@@ -1,7 +1,7 @@
 import store from '../store/store';
 
 const changeMainTitle = (currentTitle) => {
-  const [title, setTitle] = store.category();
+  const [title, setTitle] = store.titleStore();
 
   const mainTitle = document.querySelector('.main__header-title');
   setTitle(currentTitle);

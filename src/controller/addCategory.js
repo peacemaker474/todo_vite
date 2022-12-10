@@ -19,16 +19,17 @@ const handleAddCategoryUi = (category) => {
 export const handleAddCategory = (evt) => {
   evt.preventDefault();
 
-  const [toDo, setToDo] = store.toDo();
+  const [toDoLists, setToDoLists] = store.toDoStore();
+  const [category, setCategory] = store.categoryStore();
   const input = evt.target[0];
 
-  const newToDo = toDo().map((item) => {
-    return {
-      ...item,
-      category: [...item.category, input.value],
-    };
-  });
-  setToDo(newToDo);
+  // const newToDo = toDoLists().map((item) => ({
+  //   ...item,
+  //   category: [...item.category, input.value],
+  // }));
+
+  // setToDo(newToDo);
+  setCategory(input.value);
   handleAddCategoryUi(input.value);
   input.value = '';
 };
