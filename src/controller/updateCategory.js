@@ -5,7 +5,7 @@ const changeMainTitle = (currentTitle) => {
 
   const mainTitle = document.querySelector('.main__header-title');
   setTitle(currentTitle);
-  mainTitle.textContent = `My ${title()} List`;
+  mainTitle.textContent = `나의 ${title()} 목록`;
 };
 
 export const handleChangeCategory = (evt) => {

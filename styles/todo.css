@@ -21,3 +21,31 @@
   font-size: 16px;
   padding-top: 20px;
 }
+
+
+.toDo__Lists-form {
+  width: 80%;
+  height: 40px;
+  margin: 2.5rem auto;
+  border: 1px solid rgba(127, 127, 127, 0.5);
+  border-radius: 5px;
+  display: flex;
+  font-size: 12px;
+}
+
+.toDo__input {
+  all: unset;
+  width: 80%;
+  height: 100%;
+  padding-left: 7px;
+}
+
+.toDo__button {
+  all: unset;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  border-left: 1px solid rgba(127, 127, 127, 0.5);
+}

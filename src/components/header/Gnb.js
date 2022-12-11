@@ -7,7 +7,7 @@ function Gnb() {
   header.className = 'main__header';
 
   header.innerHTML = `
-    <h1 class='main__header-title'> My ${title()} List </h1>
+    <h1 class='main__header-title'> 나의 ${title()} 목록 </h1>
   `;
 
   return header;

@@ -1,5 +1,6 @@
-import ViewCategories from '../components/category/categories';
+import ViewCategories from '../components/category/Categories';
 import ViewCategoryForm from '../components/category/CategoryForm';
+import ViewToDoListForm from '../components/main/ToDoListForm';
 import ToDoLists from '../components/main/ToDoLists';
 
 function mainPage() {
@@ -11,6 +12,7 @@ function mainPage() {
   main.append(ViewCategories());
   main.append(ViewCategoryForm());
   main.append(hr);
+  main.append(ViewToDoListForm());
   main.append(ToDoLists());
 
   return main;
