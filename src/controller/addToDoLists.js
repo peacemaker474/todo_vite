@@ -1,6 +1,6 @@
 import store from '../store/store';
 
-const addToDoListsUI = (list) => {
+const addToDoListsUI = (list, nowCategory) => {
   const noneTitle = document.querySelector('.todo__list-none');
 
   if (noneTitle) {
@@ -11,8 +11,10 @@ const addToDoListsUI = (list) => {
       <li class='toDo__list'>
         <span class='toDo-title'> ${list.title} </span>
         <div class='toDo__categories-lists'>
-          ${list.category.map(
-            (item) => `<button class='category-button'> ${item} </button>`
+          ${list.category.map((item) =>
+            item !== nowCategory
+              ? `<button class='category-button'> ${item} </button>`
+              : null
           )}
         </div>
       </li>
@@ -28,8 +30,10 @@ const addToDoListsUI = (list) => {
     li.innerHTML = `
       <span class='toDo-title'> ${list.title} </span>
       <div class='toDo__categories-lists'>
-        ${list.category.map(
-          (item) => `<button class='category-button'> ${item} </button>`
+        ${list.category.map((item) =>
+          item !== nowCategory
+            ? `<button class='category-button'> ${item} </button>`
+            : null
         )}
       </div>
     `;
@@ -53,6 +57,6 @@ export const handleAddToDoLists = (evt) => {
   };
 
   setToDoLists(newToDo);
-  addToDoListsUI(newToDo);
+  addToDoListsUI(newToDo, nowCategory);
   input.value = '';
 };
