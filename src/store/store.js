@@ -59,11 +59,18 @@ const categoryStore = (() => {
 })();
 
 const toDoStore = (() => {
-  let store = localStorage.getItem(STORGE_KEY.lists) ?? initialToDoLists;
+  let store =
+    JSON.parse(localStorage.getItem(STORGE_KEY.lists)) ?? initialToDoLists;
 
   const getStore = () => store;
   const setStore = (newStore) => {
-    store = newStore;
+    if (typeof store === 'string') {
+      store = [newStore];
+      localStorage.setItem(STORGE_KEY.lists, JSON.stringify(store));
+    } else {
+      store.push(newStore);
+      localStorage.setItem(STORGE_KEY.lists, JSON.stringify(store));
+    }
   };
 
   return (newStore) => {

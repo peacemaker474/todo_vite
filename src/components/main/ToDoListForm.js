@@ -1,6 +1,4 @@
-const handleAddToDoLists = (evt) => {
-  evt.preventDefault();
-};
+import { handleAddToDoLists } from '../../controller/addToDoLists';
 
 function ViewToDoListForm() {
   const form = document.createElement('form');

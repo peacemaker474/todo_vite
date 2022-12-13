@@ -2,6 +2,7 @@ import store from '../../store/store';
 
 function ToDoLists() {
   const [toDoLists, setToDoLists] = store.toDoStore();
+  console.log(toDoLists());
 
   if (typeof toDoLists() === 'string') {
     const h2 = document.createElement('h2');
@@ -11,11 +12,19 @@ function ToDoLists() {
     return h2;
   } else {
     const ul = document.createElement('ul');
-    ul.classList = 'todo__lists';
+    ul.classList = 'toDo__lists';
 
-    console.log(list());
-    const li = list().map(
-      (item) => `<li class='todo__list ${item.id}'> ${item.title} </li>`
+    const li = toDoLists().map(
+      (item) => `
+      <li class='toDo__list'>
+        <span class='toDo-title'> ${item.title} </span>
+        <div class='toDo__categories-lists'>
+          ${item.category.map(
+            (btn) => `<button class='category-button'> ${btn} </button>`
+          )}
+        </div>
+      </li>
+    `
     );
 
     ul.innerHTML = li.join('');
