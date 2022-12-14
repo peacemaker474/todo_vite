@@ -14,13 +14,14 @@ function ToDoLists() {
     const ul = document.createElement('ul');
     ul.classList = 'toDo__lists';
 
+    console.log(toDoLists());
     const li = toDoLists()
       .filter((item) => !item.category.includes(title()))
       .map(
         (item) => `
       <li class='toDo__list'>
         <span class='toDo-title'> ${item.title} </span>
-        <div class='toDo__categories-lists'>
+        <div class='toDo__categories-lists' id=${item.id}>
           ${item.category.map(
             (btn) => `<button class='category-button'> ${btn} </button>`
           )}

@@ -1,5 +1,6 @@
 import Gnb from './components/header/Gnb';
 import updateCategory from './controller/updateCategory';
+import updateToDoList from './controller/updateToDoList';
 import mainPage from './pages/mainPage';
 
 function InitialView() {
@@ -12,6 +13,7 @@ function InitialView() {
 function App() {
   InitialView();
   updateCategory();
+  updateToDoList();
 }
 
 export default App;

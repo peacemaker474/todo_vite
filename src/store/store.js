@@ -68,7 +68,7 @@ const toDoStore = (() => {
       store = [newStore];
       localStorage.setItem(STORGE_KEY.lists, JSON.stringify(store));
     } else {
-      store.push(newStore);
+      store = [...newStore];
       localStorage.setItem(STORGE_KEY.lists, JSON.stringify(store));
     }
   };

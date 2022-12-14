@@ -56,7 +56,9 @@ export const handleAddToDoLists = (evt) => {
     category: categories.filter((item) => item !== nowCategory),
   };
 
-  setToDoLists(newToDo);
+  const changeToDo = [...toDoLists(), newToDo];
+
+  setToDoLists(changeToDo);
   addToDoListsUI(newToDo, nowCategory);
   input.value = '';
 };

@@ -1,5 +1,27 @@
 import store from '../store/store';
 
+const changeToDoLists = (title) => {
+  const [toDoLists, setToDoLists] = store.toDoStore();
+  const ul = document.querySelector('.toDo__lists');
+
+  const li = toDoLists()
+    .filter((item) => !item.category.includes(title))
+    .map(
+      (item) => `
+      <li class='toDo__list'>
+        <span class='toDo-title'> ${item.title} </span>
+        <div class='toDo__categories-lists'>
+          ${item.category.map(
+            (btn) => `<button class='category-button'> ${btn} </button>`
+          )}
+        </div>
+      </li>
+    `
+    );
+
+  ul.innerHTML = li.join('');
+};
+
 const changeMainTitle = (currentTitle) => {
   const [title, setTitle] = store.titleStore();
 
@@ -19,6 +41,7 @@ export const handleChangeCategory = (evt) => {
 
   const currentTitle = evt.target.textContent.trim();
   changeMainTitle(currentTitle);
+  changeToDoLists(currentTitle);
 };
 
 function updateCategory() {
