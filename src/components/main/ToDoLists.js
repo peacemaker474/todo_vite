@@ -14,7 +14,6 @@ function ToDoLists() {
     const ul = document.createElement('ul');
     ul.classList = 'toDo__lists';
 
-    console.log(toDoLists());
     const li = toDoLists()
       .filter((item) => !item.category.includes(title()))
       .map(
