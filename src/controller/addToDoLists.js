@@ -1,4 +1,5 @@
 import store from '../store/store';
+import updateToDoList from './updateToDoList';
 
 const addToDoListsUI = (list, nowCategory) => {
   const noneTitle = document.querySelector('.todo__list-none');
@@ -40,6 +41,7 @@ const addToDoListsUI = (list, nowCategory) => {
 
     ul.append(li);
   }
+  updateToDoList();
 };
 
 export const handleAddToDoLists = (evt) => {
@@ -56,9 +58,11 @@ export const handleAddToDoLists = (evt) => {
     category: categories.filter((item) => item !== nowCategory),
   };
 
-  const changeToDo = [...toDoLists(), newToDo];
-
-  setToDoLists(changeToDo);
+  if (typeof toDoLists() === 'string') setToDoLists(newToDo);
+  else {
+    const changeToDo = [...toDoLists(), newToDo];
+    setToDoLists(changeToDo);
+  }
   addToDoListsUI(newToDo, nowCategory);
   input.value = '';
 };

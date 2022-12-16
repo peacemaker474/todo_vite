@@ -3,6 +3,8 @@ import updateToDoList from './updateToDoList';
 
 const changeToDoLists = (title) => {
   const [toDoLists, setToDoLists] = store.toDoStore();
+
+  if (typeof toDoLists() === 'string') return;
   const ul = document.querySelector('.toDo__lists');
 
   const lists = toDoLists().filter((item) => !item.category.includes(title));

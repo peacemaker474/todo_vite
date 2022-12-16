@@ -1,6 +1,20 @@
 import store from '../store/store';
 import { handleChangeCategory } from './updateCategory';
 
+const handleUpdateToDoCategory = (category) => {
+  const buttons = Array.from(
+    document.querySelectorAll('.toDo__categories-lists')
+  );
+
+  buttons.forEach((item) => {
+    const button = document.createElement('button');
+    button.className = 'category-button';
+    button.textContent = category;
+
+    item.append(button);
+  });
+};
+
 const handleAddCategoryUI = (category) => {
   const ul = document.querySelector('.toDo__categories');
 
@@ -23,13 +37,17 @@ export const handleAddCategory = (evt) => {
   const [category, setCategory] = store.categoryStore();
   const input = evt.target[0];
 
-  // const newToDo = toDoLists().map((item) => ({
-  //   ...item,
-  //   category: [...item.category, input.value],
-  // }));
+  if (typeof toDoLists() !== 'string') {
+    const newToDo = toDoLists().map((item) => ({
+      ...item,
+      category: [...item.category, input.value],
+    }));
 
-  // setToDo(newToDo);
+    setToDoLists(newToDo);
+  }
+
   setCategory(input.value);
   handleAddCategoryUI(input.value);
+  handleUpdateToDoCategory(input.value);
   input.value = '';
 };
