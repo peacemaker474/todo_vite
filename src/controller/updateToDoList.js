@@ -1,35 +1,16 @@
 import store from '../store/store';
+import allRemoveChild from '../utils/allRemoveChild';
+import allReplaceChild from '../utils/allReplaceChild';
 
 const updateToDoListUI = (lists) => {
   const [title, setTitle] = store.titleStore();
 
   const showLists = lists.filter((item) => !item.category.includes(title()));
-  const ul = document.querySelector('.toDo__lists');
 
   if (!showLists.length) {
-    const h2 = document.createElement('h2');
-    h2.className = 'todo__list-none';
-    h2.textContent = '등록된 목록이 없습니다.';
-
-    while (ul.firstChild) {
-      ul.firstChild.remove();
-    }
-
-    ul.append(h2);
+    allRemoveChild();
   } else {
-    const li = showLists.map(
-      (item) => `
-      <li class='toDo__list'>
-        <span class='toDo-title'> ${item.title} </span>
-        <div class='toDo__categories-lists' id=${item.id}>
-          ${item.category.map(
-            (btn) => `<button class='category-button'> ${btn} </button>`
-          )}
-        </div>
-      </li>
-    `
-    );
-    ul.innerHTML = li.join('');
+    allReplaceChild(showLists);
     updateToDoList();
   }
 };
